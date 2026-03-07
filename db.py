@@ -25,7 +25,7 @@ cursor.execute("""
 
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS products(
-        id SERIAL PRIMARY KEY,
+        product_id SERIAL PRIMARY KEY,
         product_name VARCHAR(100),
         category VARCHAR(50),
         price FLOAT
@@ -34,7 +34,7 @@ cursor.execute("""
 
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS orders(
-        product_id INTEGER REFERENCES products(id),
+        product_id INTEGER REFERENCES products(product_id),
         customer_id INTEGER REFERENCES customers(customer_id),
         order_id SERIAL PRIMARY KEY,
         sale_date DATE,

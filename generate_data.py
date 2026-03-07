@@ -42,7 +42,7 @@ product_id = 1
 for category, items in product_names.items():       #   Here we have inserted our categories list into catagory and product name dictionary into items
     for item in items:
         products.append({
-            'id': product_id,
+            'product_id': product_id,
             'product_name': item,
             'category': category,
             'price': round(random.uniform(50, 50000), 2)
@@ -50,7 +50,7 @@ for category, items in product_names.items():       #   Here we have inserted ou
         product_id +=1
 
 with open('products.csv', 'w', newline='') as f:
-    writer = csv.DictWriter(f, fieldnames=['id', 'product_name', 'category', 'price'])
+    writer = csv.DictWriter(f, fieldnames=['product_id', 'product_name', 'category', 'price'])
     writer.writeheader()
     writer.writerows(products)
 
