@@ -29,6 +29,30 @@ It ingests and processes 50,000+ records across 3 normalized tables using Python
 3. Run `python db.py`
 
 ## Database Schema
-**customers** - stores customer information (customer_id, name, city, email, phone)
-**products** - stores product information (product_id, product_name, category, price)
-**orders** - stores orders information (order_id, customer_id, product_id, quantity, sale_date, payment_method)
+
+### customers
+| Column | Type |
+|--------|------|
+| customer_id | INT (PK) |
+| customer_name | VARCHAR |
+| city | VARCHAR |
+| email | VARCHAR |
+| phone | VARCHAR |
+
+### products
+| Column | Type |
+|--------|------|
+| product_id | INT (PK) |
+| product_name | VARCHAR |
+| category | VARCHAR |
+| price | FLOAT |
+
+### orders
+| Column | Type |
+|--------|------|
+| order_id | INT (PK) |
+| customer_id | INT (FK) |
+| product_id | INT (FK) |
+| quantity | INT |
+| sale_date | DATE |
+| payment_method | VARCHAR |
