@@ -10,3 +10,11 @@ services:
       POSTGRES_DB: retailpulse
     ports:
       - "5432:5432"
+  metabase:
+    image: metabase/metabase
+    container_name: retailpulse-metabase
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      
