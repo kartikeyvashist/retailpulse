@@ -11,7 +11,7 @@ conn = psycopg2.connect(
 
 cursor = conn.cursor()
 
-with open('customers.csv', 'r') as f:
+with open('data/customers.csv', 'r') as f:
     reader = csv.DictReader(f)
     for row in reader:
         cursor.execute("""
@@ -21,7 +21,7 @@ with open('customers.csv', 'r') as f:
         
 print("Customers inserted!")
 
-with open('products.csv', 'r') as f:
+with open('data/products.csv', 'r') as f:
     reader = csv.DictReader(f)
     for row in reader:
         cursor.execute("""
@@ -31,7 +31,7 @@ with open('products.csv', 'r') as f:
 
 print("Products inserted")
 
-with open('orders.csv', 'r') as f:
+with open('data/orders.csv', 'r') as f:
     reader = csv.DictReader(f)
     for row in reader:
         cursor.execute("""

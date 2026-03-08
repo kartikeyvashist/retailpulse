@@ -19,7 +19,7 @@ for i in  range(1, 501):
 
 # This is how we are going to save it to CSV
 
-with open('customers.csv', 'w', newline='') as f:
+with open('data/customers.csv', 'w', newline='') as f:
     writer = csv.DictWriter(f, fieldnames=['customer_id', 'customer_name', 'city', 'email', 'phone'])
     writer.writeheader()
     writer.writerows(customers)
@@ -49,7 +49,7 @@ for category, items in product_names.items():       #   Here we have inserted ou
         })
         product_id +=1
 
-with open('products.csv', 'w', newline='') as f:
+with open('data/products.csv', 'w', newline='') as f:
     writer = csv.DictWriter(f, fieldnames=['product_id', 'product_name', 'category', 'price'])
     writer.writeheader()
     writer.writerows(products)
@@ -70,7 +70,7 @@ for i in range(1, 50001):
         'payment_method': random.choice(payment_method)
     })
 
-with open('orders.csv', 'w', newline='') as f:
+with open('data/orders.csv', 'w', newline='') as f:
     writer = csv.DictWriter(f, fieldnames=['order_id', 'customer_id', 'product_id', 'quantity', 'sale_date', 'payment_method'])
     writer.writeheader()
     writer.writerows(orders)
