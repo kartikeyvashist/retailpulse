@@ -56,3 +56,18 @@ It ingests and processes 50,000+ records across 3 normalized tables using Python
 | quantity | INT |
 | sale_date | DATE |
 | payment_method | VARCHAR |
+
+## Dashboard
+Live analytics dashboard built with Metabase showing:
+- Revenue by Category
+- Top 10 Customers by Spending
+- Most Popular Payment Methods
+- Cities Needing Attention
+- Monthly Revenue Trend
+
+## Running the Full Stack
+1. `docker compose up -d` - starts Postgres and Metabase
+2. `python db.py` - creates tables
+3. `python generate_data.py` - generates 50,550 rows of fake data
+4. `python ingestion.py` - loads data into Postgres
+5. Open `http://localhost:3000` - view Metabase dashboard
