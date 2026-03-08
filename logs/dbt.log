@@ -1,0 +1,78 @@
+[0m22:14:48.412564 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263D6210C20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263D8207ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263D8207B10>]}
+
+
+============================== 22:14:48.441242 | 95e39e76-88f4-48a3-9697-02a86e3a527a ==============================
+[0m22:14:48.441242 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:14:48.442244 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\karti\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt init retail_dbt', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m22:14:48.732372 [debug] [MainThread]: Starter project path: C:\Users\karti\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\include\starter_project
+[0m22:14:48.782715 [info ] [MainThread]: 
+Your new dbt project "retail_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m22:14:48.783543 [info ] [MainThread]: Setting up your profile.
+[0m22:15:56.016185 [info ] [MainThread]: Profile retail_dbt written to C:\Users\karti\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m22:15:56.018206 [debug] [MainThread]: Command `dbt init` succeeded at 22:15:56.018042 after 67.79 seconds
+[0m22:15:56.018718 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263D8311BA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263D83945F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263D8083DF0>]}
+[0m22:15:56.019797 [debug] [MainThread]: Flushing usage events
+[0m22:15:59.649078 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:19:24.906048 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019950890C20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019952803ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019952803B10>]}
+
+
+============================== 22:19:24.910587 | 8290b328-fe86-4d05-b632-3ada3a9ac708 ==============================
+[0m22:19:24.910587 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:19:24.911260 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\karti\\.dbt', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m22:19:24.950369 [info ] [MainThread]: dbt version: 1.11.7
+[0m22:19:24.950915 [info ] [MainThread]: python version: 3.13.12
+[0m22:19:24.951379 [info ] [MainThread]: python path: C:\Users\karti\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe
+[0m22:19:24.951866 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m22:19:25.017488 [info ] [MainThread]: Using profiles dir at C:\Users\karti\.dbt
+[0m22:19:25.018072 [info ] [MainThread]: Using profiles.yml file at C:\Users\karti\.dbt\profiles.yml
+[0m22:19:25.018582 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\karti\OneDrive\Desktop\retailpulse\dbt_project.yml
+[0m22:19:25.019111 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m22:19:25.020374 [debug] [MainThread]: Command `dbt debug` failed at 22:19:25.020216 after 0.26 seconds
+[0m22:19:25.020786 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019952916780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000199529B2F90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000199528A3680>]}
+[0m22:19:25.021301 [debug] [MainThread]: Flushing usage events
+[0m22:19:27.413994 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:24:12.403836 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021C90890C20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021C92803ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021C92803B10>]}
+
+
+============================== 22:24:12.408496 | 6b3087f6-095f-4863-b8f2-206d33fb6adf ==============================
+[0m22:24:12.408496 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:24:12.409173 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\karti\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt init retailpulse_dbt', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m22:24:12.434108 [debug] [MainThread]: Starter project path: C:\Users\karti\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\include\starter_project
+[0m22:24:12.483935 [info ] [MainThread]: 
+Your new dbt project "retailpulse_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m22:24:12.484587 [info ] [MainThread]: Setting up your profile.
+[0m22:25:00.195349 [info ] [MainThread]: Profile retailpulse_dbt written to C:\Users\karti\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m22:25:00.198096 [debug] [MainThread]: Command `dbt init` succeeded at 22:25:00.197757 after 47.92 seconds
+[0m22:25:00.198758 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021C92961A70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021C929945F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021C92683DF0>]}
+[0m22:25:00.200108 [debug] [MainThread]: Flushing usage events
+[0m22:25:03.229133 [debug] [MainThread]: An error was encountered while trying to flush usage events

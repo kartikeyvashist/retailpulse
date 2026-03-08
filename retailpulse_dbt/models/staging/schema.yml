@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: retailpulse
+    database: retailpulse
+    schema: public
+    tables:
+      - name: customers
+      - name: products
+      - name: orders

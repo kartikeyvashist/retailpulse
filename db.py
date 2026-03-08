@@ -1,6 +1,7 @@
 import psycopg2
 
 #   Here we have created a connection for our database
+
 conn = psycopg2.connect(
     host="127.0.0.1",
     database="retailpulse",

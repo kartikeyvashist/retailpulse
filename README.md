@@ -71,3 +71,4 @@ Live analytics dashboard built with Metabase showing:
 3. `python generate_data.py` - generates 50,550 rows of fake data
 4. `python ingestion.py` - loads data into Postgres
 5. Open `http://localhost:3000` - view Metabase dashboard
+
