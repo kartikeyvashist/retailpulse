@@ -1,5 +1,5 @@
 import psycopg2
-
+import os
 #   Here we have created a connection for our database
 
 conn = psycopg2.connect(

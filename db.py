@@ -1,9 +1,10 @@
 import psycopg2
+import os
 
 #   Here we have created a connection for our database
 
 conn = psycopg2.connect(
-    host="retailpulse-db",
+    host=os.environ.get('DB_HOST', 'retailpulse-db'),
     database="retailpulse",
     user="admin",
     password="admin123",

@@ -25,7 +25,18 @@ jobs:
 
       - name: Install dbt
         run: pip install dbt-core dbt-postgres
-
+      - name: install Python dependencies
+        run: pip install psycopg2-binary pandas sqlalchemy faker
+      - name: Create tables
+        run: python db.py
+        env: 
+          DB_HOST: localhost
+      - name: Generate data
+        run: python generate_data.py
+      - name: Ingest data
+        run: python ingestion.py
+        env:
+          DB_HOST: localhost
       - name: Create profiles.yml
         run: |
           mkdir -p ~/.dbt

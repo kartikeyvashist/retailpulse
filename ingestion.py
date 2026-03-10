@@ -1,8 +1,9 @@
 import csv
 import psycopg2
+import os
 
 conn = psycopg2.connect(
-    host="127.0.0.1",
+    host=os.environ.get('DB_HOST', 'retailpulse-db'),
     database="retailpulse",
     user="admin",
     password="admin123",
