@@ -1,0 +1,51 @@
+name: dbt tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  dbt-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: admin
+          POSTGRES_PASSWORD: admin123
+          POSTGRES_DB: retailpulse
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dbt
+        run: pip install dbt-core dbt-postgres
+
+      - name: Create profiles.yml
+        run: |
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml << EOF
+          retailpulse_dbt:
+            outputs:
+              dev:
+                type: postgres
+                host: localhost
+                user: admin
+                password: admin123
+                port: 5432
+                dbname: retailpulse
+                schema: public
+                threads: 1
+            target: dev
+          EOF
+
+      - name: Run dbt tests
+        run: |
+          cd retailpulse_dbt
+          dbt run
+          dbt test
