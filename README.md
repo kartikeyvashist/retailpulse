@@ -216,6 +216,52 @@ dbt docs serve
 
 ---
 
+## 🛠️ Troubleshooting
+
+### ❌ Port 5432 already in use
+If you have PostgreSQL installed locally on Windows, it may conflict with Docker.
+1. Press `Windows + R` → type `services.msc`
+2. Find **PostgreSQL Server 18** → Right click → **Properties**
+3. Change Startup type to **Disabled** → Click **Stop**
+
+### ❌ dbt command not found (Windows)
+Run this in PowerShell to fix the PATH:
+```powershell
+Set-Alias dbt "C:\Users\<your_username>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts\dbt.exe"
+```
+
+### ❌ Airflow shows "You need to initialize the database"
+Run:
+```bash
+docker compose up airflow-init
+docker compose up -d
+```
+Then create admin user:
+```bash
+docker exec -it airflow-webserver airflow users create --username admin --password admin123 --firstname Admin --lastname User --role Admin --email admin@retailpulse.com
+```
+
+### ❌ dbt can't connect inside Airflow container
+The profiles.yml inside the container must use container name not localhost:
+```bash
+docker exec -it airflow-scheduler bash -c "sed -i 's/127.0.0.1/retailpulse-db/g' /home/airflow/.dbt/profiles.yml"
+```
+
+### ❌ CSV encoding error during ingestion
+If you see `UnicodeDecodeError`, make sure your `open()` calls use:
+```python
+open('file.csv', 'r', encoding='utf-8', errors='ignore')
+```
+
+### ❌ After every `docker compose down`, you need to:
+1. Run `python db.py`
+2. Run `python generate_data.py`  
+3. Run `python ingestion.py`
+4. Reinstall dbt in container: `docker exec -it airflow-scheduler bash -c "pip install dbt-core dbt-postgres"`
+5. Copy dbt project: `docker cp retailpulse_dbt airflow-scheduler:/opt/airflow/dags/`
+6. Fix permissions: `docker exec -it --user root airflow-scheduler bash -c "chmod -R 777 /opt/airflow/dags/retailpulse_dbt"`
+7. Fix profiles host: `docker exec -it airflow-scheduler bash -c "sed -i 's/127.0.0.1/retailpulse-db/g' /home/airflow/.dbt/profiles.yml"`
+
 ## 💼 Business Value
 
 RetailPulse answers real business questions that retail companies care about:
@@ -253,11 +299,3 @@ These insights help companies make data-driven decisions around inventory, marke
 
 This project is open source and available under the [MIT License](LICENSE).
 
-docker exec -it airflow-scheduler bash -c "pip install dbt-core dbt-postgres"
-
-docker exec -it airflow-scheduler bash -c "mkdir -p /home/airflow/.dbt"
-docker cp C:\Users\karti\.dbt\profiles.yml airflow-scheduler:/home/airflow/.dbt/profiles.yml
-docker cp retailpulse_dbt airflow-scheduler:/opt/airflow/dags/
-
-docker exec -it --user root airflow-scheduler bash -c "chmod -R 777 /opt/airflow/dags/retailpulse_dbt"
-docker exec -it airflow-scheduler bash -c "sed -i 's/127.0.0.1/retailpulse-db/g' /home/airflow/.dbt/profiles.yml"
