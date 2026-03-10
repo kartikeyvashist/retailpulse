@@ -4,10 +4,10 @@ import os
 
 conn = psycopg2.connect(
     host=os.environ.get('DB_HOST', 'retailpulse-db'),
-    database="retailpulse",
-    user="admin",
-    password="admin123",
-    port="5432"
+    database=os.environ.get('DB_NAME', 'retailpulse'),
+    user=os.environ.get('DB_USER', 'admin'),
+    password=os.environ.get('DB_PASSWORD', 'admin123'),
+    port=os.environ.get('DB_PORT', '5432')
 )
 
 cursor = conn.cursor()

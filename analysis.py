@@ -1,16 +1,20 @@
 import psycopg2
 import pandas as pd
+import os
 from sqlalchemy import create_engine
+from dotenv import load_dotenv
+
+load_dotenv()
 
 engine = create_engine('postgresql://admin:admin123@127.0.0.1:5432/retailpulse')
 
 
 conn = psycopg2.connect(
-    host="127.0.0.1",
-    database="retailpulse",
-    user="admin",
-    password="admin123",
-    port="5432"
+    host=os.environ.get('DB_HOST', 'retailpulse-db'),
+    database=os.environ.get('DB_NAME', 'retailpulse'),
+    user=os.environ.get('DB_USER', 'admin'),
+    password=os.environ.get('DB_PASSWORD', 'admin123'),
+    port=os.environ.get('DB_PORT', '5432')
 )
 
 cursor = conn.cursor()

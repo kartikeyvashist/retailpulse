@@ -253,3 +253,11 @@ These insights help companies make data-driven decisions around inventory, marke
 
 This project is open source and available under the [MIT License](LICENSE).
 
+docker exec -it airflow-scheduler bash -c "pip install dbt-core dbt-postgres"
+
+docker exec -it airflow-scheduler bash -c "mkdir -p /home/airflow/.dbt"
+docker cp C:\Users\karti\.dbt\profiles.yml airflow-scheduler:/home/airflow/.dbt/profiles.yml
+docker cp retailpulse_dbt airflow-scheduler:/opt/airflow/dags/
+
+docker exec -it --user root airflow-scheduler bash -c "chmod -R 777 /opt/airflow/dags/retailpulse_dbt"
+docker exec -it airflow-scheduler bash -c "sed -i 's/127.0.0.1/retailpulse-db/g' /home/airflow/.dbt/profiles.yml"
