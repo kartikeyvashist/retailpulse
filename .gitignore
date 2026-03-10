@@ -6,4 +6,3 @@ dags/data/
 retailpulse_dbt/target/
 retailpulse_dbt/logs/
 dags/__pycache__/
-assets/
