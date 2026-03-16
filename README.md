@@ -129,7 +129,7 @@ dbt automatically runs **6 data quality tests** on every pipeline run:
 - dbt run Command to Automatically run dbt Model.
 - Analyze_Data from analysis.py.
 
-<img src="assets/AirFlow_schedule.png" width="700">
+<img src="assets/Airflow_schedule.png" width="700">
 
 ## dbt Server
 
